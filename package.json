@@ -1,0 +1,28 @@
+{
+  "name": "mailpgivery",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/amaorine/6-1useGmailAPI-Program.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "preferGlobal": true,
+  "bin": {
+    "gmail": "index.js"
+  },
+  "bugs": {
+    "url": "https://github.com/amaorine/6-1useGmailAPI-Program/issues"
+  },
+  "homepage": "https://github.com/amaorine/6-1useGmailAPI-Program#readme",
+  "dependencies": {
+    "fs": "0.0.2",
+    "querystring": "^0.2.0",
+    "readline-sync": "^1.2.17",
+    "request": "^2.57.0"
+  }
+}
