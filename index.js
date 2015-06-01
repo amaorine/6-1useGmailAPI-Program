@@ -57,3 +57,26 @@ if (process.argv[2]==='token'){
 		fs.writeFileSync(',/token.json',JSON.stringify(body));
 	});
 }
+
+if (process.argv[2]==='labels'){
+	var tokens=JSON.parse(fs.readFileSync(',/config.json'));
+	var endpoint='https://www.googleapis.com/gmail/v1/users/me/labels';
+	var params={
+		access_token:tokens.access_token,
+		prettyPrint:true
+	};
+	var options={
+		uri:endpoint,
+		qs:params,
+		json:ture
+	};
+	request.get(options,function(error,response,body){
+		if(responce.statusCode!==200){
+			console.log("Error:",error);
+			console.log("Status code:",response.statusCode);
+			console.log("Body:",body);
+			return false;
+		}
+		console.log(body,labels);
+	});
+}
