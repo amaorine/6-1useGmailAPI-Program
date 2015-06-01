@@ -3,6 +3,8 @@
 var fs=require('fs');
 
 var querystring=require('querystring');
+var readline=require('readline-sync');
+var request=require('request');
 
 console.log("Hello");
 if(process .argv[2]===undefined){
@@ -34,9 +36,9 @@ if(process .argv[2]==='auth'){
 
 if (process.argv[2]==='token'){
 	var config=JSON.parse(fs.readFileSync(',/config.json')).installed;
-	var code= readline/question('Input returned code:');
+	var code= readline.question('Input returned code:');
 	var parms={
-		grant_type:'authrization_code',
+		grant_type:'authorization_code',
 		code: code,
 		client_id:config.client_id,
 		client_secret:config.client_secret,
@@ -48,7 +50,7 @@ if (process.argv[2]==='token'){
 		json:true
 	};
 	request.post(options,function(error,response,body){
-		if(responce.statusCode!==200){
+		if(response.statusCode!==200){
 			console.log("Error:",error);
 			console.log("Status code:",response.statusCode);
 			console.log("Body:",body);
@@ -71,7 +73,7 @@ if (process.argv[2]==='labels'){
 		json:ture
 	};
 	request.get(options,function(error,response,body){
-		if(responce.statusCode!==200){
+		if(response.statusCode!==200){
 			console.log("Error:",error);
 			console.log("Status code:",response.statusCode);
 			console.log("Body:",body);
